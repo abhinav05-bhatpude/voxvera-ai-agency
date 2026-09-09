@@ -1,6 +1,7 @@
 
 import AIWorkflow from "./components/AIWorkflow";
 import Navbar from "./components/Navbar";
+import ProblemSection from "./components/ProblemSection";
 
 export default function Home() {
   return (
@@ -8,8 +9,10 @@ export default function Home() {
       <Navbar />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-screen overflow-hidden px-6 pb-20 pt-32 sm:pt-40 lg:px-8">
+        {/* =====================================================
+            HERO SECTION
+        ===================================================== */}
+        <section className="relative min-h-screen overflow-hidden px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8">
           {/* Background Atmosphere */}
           <div
             aria-hidden="true"
@@ -18,7 +21,7 @@ export default function Home() {
             <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#43291c]/20 blur-[140px]" />
           </div>
 
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 sm:gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             {/* Hero Content */}
             <div className="max-w-3xl">
               {/* Positioning Label */}
@@ -30,8 +33,8 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* Headline */}
-              <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#f8f3ed] sm:text-6xl lg:text-7xl xl:text-8xl">
+              {/* Main Headline */}
+              <h1 className="text-[2.75rem] font-semibold leading-[1.04] tracking-[-0.045em] text-[#f8f3ed] sm:text-6xl lg:text-7xl xl:text-8xl">
                 AI Systems Built to{" "}
                 <span className="text-[#c5b8ae]">
                   Grow Your Business.
@@ -47,25 +50,29 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-               <a
-  href="#contact"
-  className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-  style={{
-    backgroundColor: "#f8f3ed",
-    color: "#1a0f0a",
-  }}
->
-  <span style={{ color: "#1a0f0a" }}>Get Started</span>
+                {/* Primary CTA */}
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{
+                    backgroundColor: "#f8f3ed",
+                    color: "#1a0f0a",
+                  }}
+                >
+                  <span style={{ color: "#1a0f0a" }}>
+                    Get Started
+                  </span>
 
-  <span
-    className="ml-2"
-    style={{ color: "#1a0f0a" }}
-    aria-hidden="true"
-  >
-    →
-  </span>
-</a>
+                  <span
+                    className="ml-2"
+                    style={{ color: "#1a0f0a" }}
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
 
+                {/* Secondary CTA */}
                 <a
                   href="#solutions"
                   className="inline-flex items-center justify-center rounded-lg border border-[#43291c] bg-[#24150e]/50 px-6 py-3.5 text-sm font-semibold text-[#f8f3ed] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#5a3827] hover:bg-[#2d1b12]"
@@ -94,8 +101,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* =====================================================
+            PROBLEM SECTION
+        ===================================================== */}
+        <ProblemSection />
       </main>
     </>
   );
-}
 
