@@ -2,7 +2,8 @@
 import AIWorkflow from "./components/AIWorkflow";
 import Navbar from "./components/Navbar";
 import ProblemSection from "./components/ProblemSection";
-import SolutionSection from "./components/SolutionSection"
+import ServicesSection from "./components/ServicesSection";
+import SolutionSection from "./components/SolutionSection";
 
 export default function Home() {
   return (
@@ -93,6 +94,8 @@ export default function Home() {
         <ProblemSection />
 
         <SolutionSection />
+
+        <ServicesSection />
       </main>
     </>
   );
