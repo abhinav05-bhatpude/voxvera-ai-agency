@@ -47,13 +47,24 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center rounded-lg bg-[#f8f3ed] px-6 py-3.5 text-sm font-semibold text-[#1a0f0a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white"
-                >
-                  Get Started
-                  <span className="ml-2">→</span>
-                </a>
+               <a
+  href="#contact"
+  className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+  style={{
+    backgroundColor: "#f8f3ed",
+    color: "#1a0f0a",
+  }}
+>
+  <span style={{ color: "#1a0f0a" }}>Get Started</span>
+
+  <span
+    className="ml-2"
+    style={{ color: "#1a0f0a" }}
+    aria-hidden="true"
+  >
+    →
+  </span>
+</a>
 
                 <a
                   href="#solutions"
