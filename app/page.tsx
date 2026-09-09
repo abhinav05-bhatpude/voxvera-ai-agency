@@ -1,4 +1,5 @@
 
+import AIChatbotSection from "./components/AIChatbotSection";
 import AIWebsitesSection from "./components/AIWebsitesSection";
 import AIWorkflow from "./components/AIWorkflow";
 import Navbar from "./components/Navbar";
@@ -99,6 +100,8 @@ export default function Home() {
         <ServicesSection />
 
         <AIWebsitesSection />
+
+        <AIChatbotSection />
       </main>
     </>
   );
