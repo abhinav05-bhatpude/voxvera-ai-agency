@@ -3,24 +3,6 @@
 :root {
   --background: #1a0f0a;
   --foreground: #f8f3ed;
-
-  --surface: #24150e;
-  --surface-elevated: #2d1b12;
-
-  --border: #43291c;
-  --border-subtle: #342017;
-
-  --muted: #c5b8ae;
-  --muted-dark: #927e70;
-
-  --accent: #f8f3ed;
-  --accent-hover: #ffffff;
-  --accent-soft: rgba(248, 243, 237, 0.08);
-
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
 }
 
 * {
@@ -37,7 +19,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -45,11 +32,13 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Selection */
 ::selection {
   background: #f8f3ed;
   color: #1a0f0a;
 }
 
+/* Hero workflow animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -61,6 +50,14 @@ a {
     transform: translateY(0);
   }
 }
+
+/* Smooth focus accessibility */
+:focus-visible {
+  outline: 2px solid #f8f3ed;
+  outline-offset: 3px;
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -72,5 +69,24 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
