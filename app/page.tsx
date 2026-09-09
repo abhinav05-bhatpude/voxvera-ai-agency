@@ -1,4 +1,5 @@
 
+import AIWebsitesSection from "./components/AIWebsitesSection";
 import AIWorkflow from "./components/AIWorkflow";
 import Navbar from "./components/Navbar";
 import ProblemSection from "./components/ProblemSection";
@@ -96,6 +97,8 @@ export default function Home() {
         <SolutionSection />
 
         <ServicesSection />
+
+        <AIWebsitesSection />
       </main>
     </>
   );
