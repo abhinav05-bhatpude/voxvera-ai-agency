@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import HumanHandoff from "./HumanHandoff";
+import HumanHandoff from "./HumanHandOff";
 import LeadDetails from "./LeadDetails";
 
 const workflowSteps = [
