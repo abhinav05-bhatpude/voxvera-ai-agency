@@ -1,4 +1,5 @@
 
+import AIAgentSection from "./components/AIAgentSection";
 import AIChatbotSection from "./components/AIChatbotSection";
 import AIWebsitesSection from "./components/AIWebsitesSection";
 import AIWorkflow from "./components/AIWorkflow";
@@ -102,6 +103,8 @@ export default function Home() {
         <AIWebsitesSection />
 
         <AIChatbotSection />
+
+        <AIAgentSection />
       </main>
     </>
   );
