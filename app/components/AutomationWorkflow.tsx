@@ -43,7 +43,7 @@ export default function AutomationWorkflow() {
   const currentNode = workflowNodes[activeNode];
 
   return (
-    <div className="rounded-3xl border border-[#43291c] bg-[#1a0f0a] p-4 shadow-2xl sm:p-6">
+    <div className="rounded-3xl border border-[#43291c] bg-[#1a0f0a] p-4 shadow-2xl transition-shadow duration-500 hover:shadow-[0_25px_70px_rgba(0,0,0,0.35)] sm:p-6">
       <div className="rounded-2xl border border-[#43291c] bg-[#24150e]">
         <div className="flex items-center justify-between border-b border-[#43291c] px-5 py-4">
           <div>
@@ -57,7 +57,10 @@ export default function AutomationWorkflow() {
           </div>
 
           <div className="flex items-center gap-2 rounded-full border border-[#43291c] px-3 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#f8f3ed]" />
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f3ed] opacity-50" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#f8f3ed]" />
+            </span>
 
             <span className="text-[10px] text-[#c5b8ae]">
               Running
@@ -78,14 +81,14 @@ export default function AutomationWorkflow() {
                     onClick={() => setActiveNode(index)}
                     className={`group flex w-full items-center gap-3 rounded-xl border p-3 text-left transition-all duration-300 sm:h-full sm:flex-col sm:items-start ${
                       active
-                        ? "border-[#f8f3ed]/30 bg-[#1a0f0a]"
-                        : "border-[#43291c] bg-[#1a0f0a]/50 hover:border-[#634331]"
+                        ? "border-[#f8f3ed]/30 bg-[#1a0f0a] shadow-lg"
+                        : "border-[#43291c] bg-[#1a0f0a]/50 hover:border-[#634331] hover:bg-[#1f120c]"
                     }`}
                   >
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-[9px] font-semibold transition-all duration-300 ${
                         active || completed
-                          ? "border-[#f8f3ed] bg-[#f8f3ed] text-[#1a0f0a]"
+                          ? "border-[#f8f3ed] bg-[#f8f3ed] text-[#1a0f0a] scale-105"
                           : "border-[#43291c] text-[#634f43]"
                       }`}
                     >
@@ -94,7 +97,7 @@ export default function AutomationWorkflow() {
 
                     <span className="min-w-0">
                       <span
-                        className={`block text-[11px] font-semibold ${
+                        className={`block text-[11px] font-semibold transition-colors duration-300 ${
                           active || completed
                             ? "text-[#f8f3ed]"
                             : "text-[#927e70]"
@@ -124,7 +127,10 @@ export default function AutomationWorkflow() {
 
           <div className="my-5 h-px bg-[#43291c]" />
 
-          <div className="rounded-2xl border border-[#43291c] bg-[#1a0f0a] p-5 sm:p-6">
+          <div
+            key={currentNode.number}
+            className="animate-[fadeIn_300ms_ease-out] rounded-2xl border border-[#43291c] bg-[#1a0f0a] p-5 sm:p-6"
+          >
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div className="max-w-xl">
                 <p className="text-[9px] uppercase tracking-[0.16em] text-[#927e70]">
@@ -140,7 +146,7 @@ export default function AutomationWorkflow() {
                 </p>
               </div>
 
-              <div className="shrink-0 rounded-xl border border-[#43291c] bg-[#24150e] px-4 py-3">
+              <div className="shrink-0 rounded-xl border border-[#43291c] bg-[#24150e] px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5">
                 <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
                   Automated action
                 </p>
@@ -167,7 +173,7 @@ export default function AutomationWorkflow() {
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     index === activeNode
                       ? "w-6 bg-[#f8f3ed]"
-                      : "w-1.5 bg-[#43291c]"
+                      : "w-1.5 bg-[#43291c] hover:bg-[#634331]"
                   }`}
                 />
               ))}
