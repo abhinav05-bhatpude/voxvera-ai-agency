@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LeadQualification from "./LeadQualification";
+import LeadDetails from "./LeadDetails";
 
 const workflowSteps = [
   {
@@ -68,9 +68,7 @@ export default function AIAgentSection() {
                   key={feature}
                   className="flex items-center gap-3 rounded-xl border border-[#43291c] bg-[#24150e] px-4 py-3"
                 >
-                  <span className="text-xs text-[#f8f3ed]">
-                    ✓
-                  </span>
+                  <span className="text-xs text-[#f8f3ed]">✓</span>
 
                   <span className="text-xs text-[#c5b8ae]">
                     {feature}
@@ -129,7 +127,7 @@ export default function AIAgentSection() {
                       return (
                         <div
                           key={step.number}
-                          className={`relative flex items-center gap-4 rounded-xl border p-4 transition-all duration-500 ${
+                          className={`flex items-center gap-4 rounded-xl border p-4 transition-all duration-500 ${
                             active
                               ? "border-[#f8f3ed]/30 bg-[#1a0f0a]"
                               : "border-[#43291c] bg-[#1a0f0a]/50"
@@ -164,8 +162,8 @@ export default function AIAgentSection() {
                           {active && (
                             <div className="ml-auto flex gap-1">
                               <span className="h-1 w-1 animate-pulse rounded-full bg-[#f8f3ed]" />
-                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#c5b8ae] [animation-delay:150ms]" />
-                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#927e70] [animation-delay:300ms]" />
+                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#c5b8ae]" />
+                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#927e70]" />
                             </div>
                           )}
                         </div>
@@ -183,7 +181,7 @@ export default function AIAgentSection() {
                     <div className="h-px flex-1 bg-[#43291c]" />
                   </div>
 
-                  <LeadQualification />
+                  <LeadDetails />
 
                   <div className="mt-4 flex items-center justify-between rounded-xl border border-[#43291c] bg-[#1a0f0a] px-4 py-3">
                     <div>
