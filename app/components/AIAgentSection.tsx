@@ -2,34 +2,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import LeadQualification from "./LeadQualification";
 
-const conversation = [
+const workflowSteps = [
   {
-    type: "customer",
-    text: "I'm looking for a 2BHK under ₹60 lakh.",
+    number: "01",
+    label: "Incoming Lead",
+    value: "New enquiry detected",
   },
   {
-    type: "ai",
-    text: "Got it. Which location are you interested in?",
+    number: "02",
+    label: "AI Analysis",
+    value: "Intent & requirements",
   },
   {
-    type: "customer",
-    text: "Around the city center.",
-  },
-  {
-    type: "ai",
-    text: "Perfect. What's your preferred possession timeline?",
+    number: "03",
+    label: "Qualification",
+    value: "Lead scored automatically",
   },
 ];
 
 export default function AIAgentSection() {
-  const [visibleMessages, setVisibleMessages] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisibleMessages((current) =>
-        current < conversation.length ? current + 1 : 1
-      );
+      setActiveStep((current) => (current + 1) % workflowSteps.length);
     }, 2200);
 
     return () => clearInterval(interval);
@@ -38,7 +36,7 @@ export default function AIAgentSection() {
   return (
     <section className="px-5 py-24 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#927e70]">
               Service 03
@@ -47,14 +45,14 @@ export default function AIAgentSection() {
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f8f3ed] sm:text-4xl lg:text-5xl">
               AI Agents That{" "}
               <span className="text-[#c5b8ae]">
-                Do More Than Chat.
+                Do the Work.
               </span>
             </h2>
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#927e70] sm:text-base">
-              AI agents can understand customer conversations, ask the right
-              questions, qualify leads, collect information, and hand
-              high-intent opportunities to your team.
+              AI agents can understand incoming requests, make decisions,
+              collect information, qualify opportunities, and trigger the
+              next action without requiring your team to handle every step.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -70,7 +68,9 @@ export default function AIAgentSection() {
                   key={feature}
                   className="flex items-center gap-3 rounded-xl border border-[#43291c] bg-[#24150e] px-4 py-3"
                 >
-                  <span className="text-xs text-[#f8f3ed]">✓</span>
+                  <span className="text-xs text-[#f8f3ed]">
+                    ✓
+                  </span>
 
                   <span className="text-xs text-[#c5b8ae]">
                     {feature}
@@ -81,7 +81,7 @@ export default function AIAgentSection() {
 
             <a
               href="#contact"
-              className="mt-9 inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+              className="mt-9 inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5"
               style={{
                 backgroundColor: "#f8f3ed",
                 color: "#1a0f0a",
@@ -92,114 +92,114 @@ export default function AIAgentSection() {
             </a>
           </div>
 
-          <div className="rounded-3xl border border-[#43291c] bg-[#1a0f0a] p-4 shadow-2xl sm:p-6">
-            <div className="overflow-hidden rounded-2xl border border-[#43291c] bg-[#24150e]">
-              <div className="flex items-center justify-between border-b border-[#43291c] px-5 py-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f8f3ed] text-xs font-bold text-[#1a0f0a]">
-                    AI
-                  </div>
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-10 rounded-full bg-[#43291c]/10 blur-[90px]"
+            />
 
+            <div className="relative rounded-3xl border border-[#43291c] bg-[#1a0f0a] p-4 shadow-2xl sm:p-6">
+              <div className="rounded-2xl border border-[#43291c] bg-[#24150e]">
+                <div className="flex items-center justify-between border-b border-[#43291c] px-5 py-4">
                   <div>
-                    <p className="text-sm font-semibold text-[#f8f3ed]">
-                      Property Agent
+                    <p className="text-[10px] uppercase tracking-[0.16em] text-[#927e70]">
+                      Autonomous Business Agent
                     </p>
 
-                    <div className="mt-0.5 flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#f8f3ed]" />
+                    <p className="mt-1 text-sm font-semibold text-[#f8f3ed]">
+                      Lead Intelligence System
+                    </p>
+                  </div>
 
-                      <span className="text-[10px] text-[#927e70]">
-                        Qualifying lead
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-2 rounded-full border border-[#43291c] px-3 py-1.5">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#f8f3ed]" />
+
+                    <span className="text-[10px] text-[#c5b8ae]">
+                      Processing
+                    </span>
                   </div>
                 </div>
 
-                <span className="rounded-full border border-[#43291c] px-2.5 py-1 text-[10px] text-[#927e70]">
-                  Live
-                </span>
-              </div>
+                <div className="p-5 sm:p-6">
+                  <div className="grid gap-3">
+                    {workflowSteps.map((step, index) => {
+                      const active = index === activeStep;
+                      const completed = index < activeStep;
 
-              <div className="min-h-[390px] space-y-4 p-5 sm:p-6">
-                {conversation
-                  .slice(0, visibleMessages)
-                  .map((message, index) => (
-                    <div
-                      key={`${message.type}-${index}`}
-                      className={`flex ${
-                        message.type === "customer"
-                          ? "justify-end"
-                          : "justify-start"
-                      }`}
-                    >
-                      <div
-                        className={`max-w-[82%] rounded-2xl px-4 py-3 text-xs leading-5 ${
-                          message.type === "customer"
-                            ? "rounded-br-md bg-[#f8f3ed] text-[#1a0f0a]"
-                            : "rounded-bl-md border border-[#43291c] bg-[#1a0f0a] text-[#c5b8ae]"
-                        }`}
-                      >
-                        {message.text}
-                      </div>
+                      return (
+                        <div
+                          key={step.number}
+                          className={`relative flex items-center gap-4 rounded-xl border p-4 transition-all duration-500 ${
+                            active
+                              ? "border-[#f8f3ed]/30 bg-[#1a0f0a]"
+                              : "border-[#43291c] bg-[#1a0f0a]/50"
+                          }`}
+                        >
+                          <div
+                            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border text-[10px] font-semibold transition-all duration-500 ${
+                              active || completed
+                                ? "border-[#f8f3ed] bg-[#f8f3ed] text-[#1a0f0a]"
+                                : "border-[#43291c] text-[#634f43]"
+                            }`}
+                          >
+                            {completed ? "✓" : step.number}
+                          </div>
+
+                          <div className="min-w-0">
+                            <p
+                              className={`text-xs font-semibold ${
+                                active || completed
+                                  ? "text-[#f8f3ed]"
+                                  : "text-[#927e70]"
+                              }`}
+                            >
+                              {step.label}
+                            </p>
+
+                            <p className="mt-1 text-[10px] text-[#634f43]">
+                              {step.value}
+                            </p>
+                          </div>
+
+                          {active && (
+                            <div className="ml-auto flex gap-1">
+                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#f8f3ed]" />
+                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#c5b8ae] [animation-delay:150ms]" />
+                              <span className="h-1 w-1 animate-pulse rounded-full bg-[#927e70] [animation-delay:300ms]" />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="my-5 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-[#43291c]" />
+
+                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#634f43]">
+                      Extracted intelligence
+                    </span>
+
+                    <div className="h-px flex-1 bg-[#43291c]" />
+                  </div>
+
+                  <LeadQualification />
+
+                  <div className="mt-4 flex items-center justify-between rounded-xl border border-[#43291c] bg-[#1a0f0a] px-4 py-3">
+                    <div>
+                      <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
+                        Next action
+                      </p>
+
+                      <p className="mt-1 text-xs font-medium text-[#c5b8ae]">
+                        Notify sales team
+                      </p>
                     </div>
-                  ))}
 
-                {visibleMessages === conversation.length && (
-                  <div className="rounded-2xl border border-[#43291c] bg-[#1a0f0a] p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase tracking-[0.14em] text-[#927e70]">
-                        Lead qualification
-                      </span>
-
-                      <span className="text-xs font-semibold text-[#f8f3ed]">
-                        In progress
-                      </span>
-                    </div>
-
-                    <div className="mt-4 space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-[#927e70]">
-                          Budget
-                        </span>
-
-                        <span className="text-xs text-[#c5b8ae]">
-                          ₹60L
-                        </span>
-                      </div>
-
-                      <div className="h-1.5 overflow-hidden rounded-full bg-[#43291c]">
-                        <div className="h-full w-[78%] rounded-full bg-[#f8f3ed]" />
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-[#927e70]">
-                          Property
-                        </span>
-
-                        <span className="text-xs text-[#c5b8ae]">
-                          2BHK
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-[#927e70]">
-                          Location
-                        </span>
-
-                        <span className="text-xs text-[#c5b8ae]">
-                          City Center
-                        </span>
-                      </div>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#43291c] text-xs text-[#f8f3ed]">
+                      →
                     </div>
                   </div>
-                )}
-              </div>
-
-              <div className="border-t border-[#43291c] px-5 py-4">
-                <div className="flex items-center justify-between text-[10px] text-[#927e70]">
-                  <span>Agent is analyzing conversation</span>
-
-                  <span>● ● ●</span>
                 </div>
               </div>
             </div>
