@@ -9,6 +9,24 @@ const automationFeatures = [
   "Internal notifications",
 ];
 
+const systemConnections = [
+  {
+    number: "01",
+    title: "AI Agent",
+    description: "Understands the incoming lead",
+  },
+  {
+    number: "02",
+    title: "Automation",
+    description: "Triggers the right business action",
+  },
+  {
+    number: "03",
+    title: "Sales Team",
+    description: "Receives a sales-ready opportunity",
+  },
+];
+
 export default function AIAutomationSection() {
   return (
     <section className="px-5 py-24 sm:px-6 sm:py-28 lg:px-8">
@@ -16,6 +34,42 @@ export default function AIAutomationSection() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <div className="order-2 lg:order-1">
             <AutomationWorkflow />
+
+            <div className="mt-4 rounded-2xl border border-[#43291c] bg-[#1a0f0a] p-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                {systemConnections.map((connection, index) => (
+                  <div
+                    key={connection.number}
+                    className="flex min-w-0 flex-1 items-center"
+                  >
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#43291c] bg-[#24150e] text-[9px] font-semibold text-[#f8f3ed]">
+                        {connection.number}
+                      </div>
+
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-semibold text-[#f8f3ed]">
+                          {connection.title}
+                        </p>
+
+                        <p className="mt-1 text-[9px] leading-4 text-[#634f43]">
+                          {connection.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {index < systemConnections.length - 1 && (
+                      <span
+                        aria-hidden="true"
+                        className="ml-auto hidden px-3 text-xs text-[#634f43] sm:block"
+                      >
+                        →
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="order-1 lg:order-2">
@@ -47,6 +101,36 @@ export default function AIAutomationSection() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-[#43291c] bg-[#24150e] p-5">
+              <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-[#927e70]">
+                Connected AI System
+              </p>
+
+              <p className="mt-2 text-sm leading-6 text-[#c5b8ae]">
+                Your AI agent does not stop after understanding a lead.
+                It can pass that information into automated workflows that
+                keep the business moving.
+              </p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <span className="rounded-lg border border-[#43291c] bg-[#1a0f0a] px-3 py-2 text-[10px] font-medium text-[#f8f3ed]">
+                  AI Agent
+                </span>
+
+                <span className="text-xs text-[#634f43]">→</span>
+
+                <span className="rounded-lg border border-[#43291c] bg-[#1a0f0a] px-3 py-2 text-[10px] font-medium text-[#f8f3ed]">
+                  Automation
+                </span>
+
+                <span className="text-xs text-[#634f43]">→</span>
+
+                <span className="rounded-lg border border-[#43291c] bg-[#1a0f0a] px-3 py-2 text-[10px] font-medium text-[#f8f3ed]">
+                  Sales
+                </span>
+              </div>
             </div>
 
             <a

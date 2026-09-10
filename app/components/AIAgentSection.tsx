@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
-import HumanHandoff from "./HumanHandOff";
+import HumanHandoff from "./HumanHandoff";
 import LeadDetails from "./LeadDetails";
 
 const workflowSteps = [
@@ -67,7 +68,10 @@ export default function AIAgentSection() {
                   className="flex items-center gap-3 rounded-xl border border-[#43291c] bg-[#24150e] px-4 py-3"
                 >
                   <span className="text-xs text-[#f8f3ed]">✓</span>
-                  <span className="text-xs text-[#c5b8ae]">{feature}</span>
+
+                  <span className="text-xs text-[#c5b8ae]">
+                    {feature}
+                  </span>
                 </div>
               ))}
             </div>
@@ -190,19 +194,31 @@ export default function AIAgentSection() {
 
                   <HumanHandoff />
 
-                  <div className="mt-4 flex items-center justify-between rounded-xl border border-[#43291c] bg-[#1a0f0a] px-4 py-3">
-                    <div>
-                      <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
-                        Next action
-                      </p>
+                  <div className="mt-4 rounded-xl border border-[#43291c] bg-[#1a0f0a] px-4 py-4">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
+                          Next system action
+                        </p>
 
-                      <p className="mt-1 text-xs font-medium text-[#c5b8ae]">
-                        Sales team takes over
-                      </p>
-                    </div>
+                        <p className="mt-1 text-xs font-medium text-[#c5b8ae]">
+                          Send qualified lead to automation
+                        </p>
+                      </div>
 
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#43291c] text-xs text-[#f8f3ed]">
-                      →
+                      <div className="flex shrink-0 items-center gap-2">
+                        <span className="hidden text-[9px] uppercase tracking-[0.12em] text-[#634f43] sm:block">
+                          AI Agent
+                        </span>
+
+                        <span className="text-xs text-[#f8f3ed]">
+                          →
+                        </span>
+
+                        <span className="rounded-full border border-[#43291c] px-3 py-1.5 text-[9px] font-medium text-[#f8f3ed]">
+                          Automation
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
