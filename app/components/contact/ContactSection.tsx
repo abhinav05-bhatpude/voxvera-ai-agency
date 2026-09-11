@@ -5,6 +5,41 @@ import { FormEvent, useState } from "react";
 
 const packages = ["Starter", "Medium", "Pro", "Not sure"];
 
+const contactLinks = [
+  {
+    name: "WhatsApp",
+    description: "Chat with us directly",
+    href: "https://wa.me/919226585517",
+    icon:
+      "https://static.vecteezy.com/system/resources/previews/016/716/480/original/whatsapp-icon-free-png.png",
+    active: true,
+  },
+  {
+    name: "Gmail",
+    description: "voxveraagency@gmail.com",
+    href: "mailto:voxveraagency@gmail.com",
+    icon:
+      "https://static.vecteezy.com/system/resources/previews/022/484/516/original/google-mail-gmail-icon-logo-symbol-free-png.png",
+    active: true,
+  },
+  {
+    name: "Instagram",
+    description: "Follow Voxvera",
+    href: "",
+    icon:
+      "https://freepngimg.com/download/logo/69768-logo-computer-layout-instagram-icons-png-file-hd.png",
+    active: false,
+  },
+  {
+    name: "LinkedIn",
+    description: "Connect with Voxvera",
+    href: "",
+    icon:
+      "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png",
+    active: false,
+  },
+];
+
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -39,40 +74,98 @@ export default function ContactSection() {
             </p>
 
             <div className="mt-8 space-y-3">
-              <div className="rounded-2xl border border-[#43291c] bg-[#24150e] p-4 sm:p-5">
-                <p className="text-[9px] uppercase tracking-[0.14em] text-[#927e70]">
-                  Starter
-                </p>
-                <p className="mt-1 text-sm font-medium text-[#f8f3ed]">
-                  Professional Website
-                </p>
-                <p className="mt-1 text-xs text-[#634f43]">
-                  ₹15,000
-                </p>
-              </div>
+              {[
+                ["Starter", "Professional Website", "₹15,000"],
+                ["Medium", "Website + AI Chatbot", "₹20,000"],
+                ["Pro", "Website + AI + Automation", "₹25,000"],
+              ].map(([name, description, price]) => (
+                <div
+                  key={name}
+                  className="rounded-2xl border border-[#43291c] bg-[#24150e] p-4 sm:p-5"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-[9px] uppercase tracking-[0.14em] text-[#927e70]">
+                        {name}
+                      </p>
 
-              <div className="rounded-2xl border border-[#43291c] bg-[#24150e] p-4 sm:p-5">
-                <p className="text-[9px] uppercase tracking-[0.14em] text-[#927e70]">
-                  Medium
-                </p>
-                <p className="mt-1 text-sm font-medium text-[#f8f3ed]">
-                  Website + AI Chatbot
-                </p>
-                <p className="mt-1 text-xs text-[#634f43]">
-                  ₹20,000
-                </p>
-              </div>
+                      <p className="mt-1 text-sm font-medium text-[#f8f3ed]">
+                        {description}
+                      </p>
+                    </div>
 
-              <div className="rounded-2xl border border-[#43291c] bg-[#24150e] p-4 sm:p-5">
-                <p className="text-[9px] uppercase tracking-[0.14em] text-[#927e70]">
-                  Pro
-                </p>
-                <p className="mt-1 text-sm font-medium text-[#f8f3ed]">
-                  Website + AI + Automation
-                </p>
-                <p className="mt-1 text-xs text-[#634f43]">
-                  ₹25,000
-                </p>
+                    <p className="shrink-0 text-sm font-semibold text-[#c5b8ae]">
+                      {price}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <p className="text-[9px] font-medium uppercase tracking-[0.14em] text-[#927e70]">
+                Direct contact
+              </p>
+
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                {contactLinks.map((contact) => {
+                  if (!contact.active) {
+                    return (
+                      <div
+                        key={contact.name}
+                        className="rounded-2xl border border-[#43291c] bg-[#24150e] p-4 opacity-50 sm:p-5"
+                      >
+                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#43291c] bg-[#1a0f0a]">
+                          <img
+                            src={contact.icon}
+                            alt=""
+                            className="h-10 w-10 object-contain"
+                          />
+                        </div>
+
+                        <p className="mt-4 text-sm font-semibold text-[#f8f3ed]">
+                          {contact.name}
+                        </p>
+
+                        <p className="mt-1 text-[10px] leading-5 text-[#927e70]">
+                          {contact.description}
+                        </p>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <a
+                      key={contact.name}
+                      href={contact.href}
+                      target={
+                        contact.name === "WhatsApp" ? "_blank" : undefined
+                      }
+                      rel={
+                        contact.name === "WhatsApp"
+                          ? "noreferrer"
+                          : undefined
+                      }
+                      className="group rounded-2xl border border-[#43291c] bg-[#24150e] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#634331] hover:bg-[#2a190f] sm:p-5"
+                    >
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#43291c] bg-[#1a0f0a] transition-transform duration-300 group-hover:-translate-y-1">
+                        <img
+                          src={contact.icon}
+                          alt=""
+                          className="h-11 w-11 object-contain"
+                        />
+                      </div>
+
+                      <p className="mt-4 text-sm font-semibold text-[#f8f3ed]">
+                        {contact.name}
+                      </p>
+
+                      <p className="mt-1 text-[10px] leading-5 text-[#927e70]">
+                        {contact.description}
+                      </p>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -109,7 +202,7 @@ export default function ContactSection() {
                   </p>
 
                   <h3 className="mt-2 text-xl font-semibold tracking-[-0.025em] text-[#f8f3ed]">
-                    Let's build something useful.
+                    Let&apos;s build something useful.
                   </h3>
 
                   <p className="mt-2 text-xs leading-6 text-[#927e70]">
