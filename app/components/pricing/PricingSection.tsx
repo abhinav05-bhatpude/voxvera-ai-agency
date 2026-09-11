@@ -2,45 +2,49 @@
 const plans = [
   {
     number: "01",
-    name: "AI Starter",
+    name: "Starter",
+    price: "₹4,999",
     description:
-      "For businesses that need a stronger digital presence and a better way to capture enquiries.",
+      "A professional website designed to give your business a strong digital presence.",
     includes: [
-      "AI-powered website",
-      "Lead capture system",
+      "Modern responsive website",
+      "Mobile-friendly design",
+      "Lead capture form",
       "WhatsApp integration",
-      "Booking or enquiry flow",
+      "Basic enquiry flow",
     ],
-    label: "For getting started",
+    label: "Website",
   },
   {
     number: "02",
-    name: "AI Growth",
+    name: "Pro",
+    price: "₹9,999",
     description:
-      "For businesses ready to automate lead qualification, follow-ups, and customer interactions.",
+      "A smarter website with AI-powered customer interactions and lead handling.",
     includes: [
-      "Everything in AI Starter",
-      "AI chatbot or agent",
+      "Everything in Starter",
+      "AI chatbot",
+      "AI-powered customer responses",
       "Lead qualification",
-      "Automated follow-ups",
-      "CRM integration",
+      "Smart enquiry handling",
     ],
-    label: "For growing businesses",
+    label: "Website + AI",
     featured: true,
   },
   {
     number: "03",
-    name: "AI Custom",
+    name: "Scale",
+    price: "₹14,999",
     description:
-      "For businesses that need a connected AI system built around their specific operations.",
+      "A complete AI-powered system that connects your website, AI, and business workflows.",
     includes: [
-      "Custom AI agents",
-      "Advanced automation",
-      "Multi-step workflows",
-      "Business system integrations",
-      "Ongoing optimization",
+      "Everything in Pro",
+      "AI automation",
+      "Automated follow-ups",
+      "Workflow automation",
+      "Business process integration",
     ],
-    label: "For complex operations",
+    label: "Website + AI + Automation",
   },
 ];
 
@@ -50,18 +54,19 @@ export default function PricingSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#927e70]">
-            Engagement
+            Pricing
           </p>
 
           <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f8f3ed] sm:text-4xl lg:text-5xl">
-            Start with what your business{" "}
-            <span className="text-[#c5b8ae]">actually needs.</span>
+            Start small.{" "}
+            <span className="text-[#c5b8ae]">
+              Build smarter.
+            </span>
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-[#927e70] sm:text-base">
-            Every business has different workflows, tools, and priorities.
-            We scope each project around the system you actually need rather
-            than forcing you into a one-size-fits-all package.
+            Choose the level of AI your business needs today. You can always
+            upgrade as your business grows.
           </p>
         </div>
 
@@ -103,6 +108,16 @@ export default function PricingSection() {
                 </p>
               </div>
 
+              <div className="mt-6">
+                <p className="text-3xl font-semibold tracking-[-0.035em] text-[#f8f3ed]">
+                  {plan.price}
+                </p>
+
+                <p className="mt-1 text-[10px] text-[#634f43]">
+                  Starting price
+                </p>
+              </div>
+
               <div className="my-6 h-px bg-[#43291c]" />
 
               <div>
@@ -128,16 +143,11 @@ export default function PricingSection() {
               <div className="mt-auto pt-8">
                 <div className="rounded-xl border border-[#43291c] bg-[#1a0f0a] p-4">
                   <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
-                    Engagement
+                    Package
                   </p>
 
                   <p className="mt-1.5 text-xs font-medium text-[#f8f3ed]">
                     {plan.label}
-                  </p>
-
-                  <p className="mt-2 text-[10px] leading-5 text-[#634f43]">
-                    Final pricing depends on scope, integrations, and
-                    workflow complexity.
                   </p>
                 </div>
 
@@ -145,7 +155,7 @@ export default function PricingSection() {
                   href="#contact"
                   className="mt-4 flex w-full items-center justify-center rounded-lg border border-[#43291c] px-5 py-3 text-xs font-semibold text-[#f8f3ed] transition-all duration-300 hover:border-[#634331] hover:bg-[#2a190f]"
                 >
-                  Discuss This Option
+                  Get Started
                   <span className="ml-2">→</span>
                 </a>
               </div>
@@ -157,17 +167,17 @@ export default function PricingSection() {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-[9px] font-medium uppercase tracking-[0.14em] text-[#927e70]">
-                How pricing works
+                Need something bigger?
               </p>
 
               <h3 className="mt-2 text-base font-semibold text-[#f8f3ed] sm:text-lg">
-                We price the system, not the number of features.
+                We can build a custom AI system around your business.
               </h3>
 
               <p className="mt-2 text-xs leading-6 text-[#927e70] sm:text-sm">
-                Your final proposal is based on the business problem, required
-                integrations, workflow complexity, and level of ongoing
-                support.
+                Custom AI agents, advanced automations, CRM integrations,
+                multi-step workflows, and other business-specific systems can
+                be scoped separately.
               </p>
             </div>
 
@@ -179,7 +189,7 @@ export default function PricingSection() {
                 color: "#1a0f0a",
               }}
             >
-              Get a Custom Quote
+              Discuss Custom Work
               <span className="ml-2" style={{ color: "#1a0f0a" }}>
                 →
               </span>
@@ -190,4 +200,4 @@ export default function PricingSection() {
     </section>
   );
 }
-```
+
