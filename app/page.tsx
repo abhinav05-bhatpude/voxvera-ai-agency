@@ -3,7 +3,10 @@ import AIAgentSection from "./components/AIAgentSection";
 import AIAutomationSection from "./components/AIAutomationSection";
 import AIChatbotSection from "./components/AIChatbotSection";
 import AIWebsitesSection from "./components/AIWebsitesSection";
+import ExampleSolutionsSection from "./components/solutions/ExampleSolutionsSection";
+import IndustriesSection from "./components/IndustriesSection";
 import Navbar from "./components/Navbar";
+import PricingSection from "./components/pricing/PricingSection";
 import ProblemSection from "./components/ProblemSection";
 import ServicesSection from "./components/ServicesSection";
 import SolutionSection from "./components/SolutionSection";
@@ -22,6 +25,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl text-center">
           <div className="mx-auto inline-flex items-center rounded-full border border-[#43291c] bg-[#24150e] px-4 py-2">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#f8f3ed]" />
+
             <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#c5b8ae]">
               AI Systems for Modern Businesses
             </span>
@@ -47,6 +51,7 @@ export default function Home() {
               }}
             >
               <span style={{ color: "#1a0f0a" }}>Get Started</span>
+
               <span className="ml-2" style={{ color: "#1a0f0a" }}>
                 →
               </span>
@@ -57,6 +62,7 @@ export default function Home() {
               className="inline-flex w-full items-center justify-center rounded-lg border border-[#43291c] bg-[#24150e] px-6 py-3 text-sm font-medium text-[#c5b8ae] transition-all duration-200 hover:border-[#634331] hover:text-[#f8f3ed] sm:w-auto"
             >
               View Our Solutions
+
               <span className="ml-2">↓</span>
             </a>
           </div>
@@ -107,6 +113,12 @@ export default function Home() {
 
       <AIAutomationSection />
 
+      <IndustriesSection />
+
+      <PricingSection />
+
+      <ExampleSolutionsSection />
+
       <section className="px-5 py-24 sm:px-6 sm:py-28 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-3xl border border-[#43291c] bg-[#24150e] px-6 py-14 text-center sm:px-10 lg:px-16">
@@ -116,7 +128,9 @@ export default function Home() {
 
             <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f8f3ed] sm:text-4xl lg:text-5xl">
               Turn repetitive business work into{" "}
-              <span className="text-[#c5b8ae]">automated systems.</span>
+              <span className="text-[#c5b8ae]">
+                automated systems.
+              </span>
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#927e70] sm:text-base">
@@ -209,6 +223,7 @@ export default function Home() {
 
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-[#43291c] pt-6 text-[10px] text-[#634f43] sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Voxvera AI Agency. All rights reserved.</span>
+
           <span>Built for smarter business operations.</span>
         </div>
       </footer>
