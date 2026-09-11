@@ -3,48 +3,63 @@ const plans = [
   {
     number: "01",
     name: "Starter",
-    price: "₹4,999",
+    price: "₹15,000",
     description:
-      "A professional website designed to give your business a strong digital presence.",
+      "A professional business website that builds credibility and gives customers a simple way to discover and contact your business.",
     includes: [
-      "Modern responsive website",
-      "Mobile-friendly design",
-      "Lead capture form",
+      "Professional business website",
+      "Mobile-responsive design",
+      "Services & business information",
+      "Contact & enquiry form",
       "WhatsApp integration",
-      "Basic enquiry flow",
+      "Basic SEO setup",
+      "Deployment & domain connection",
     ],
-    label: "Website",
+    label: "Professional Website",
+    exampleTitle: "Example: Local Restaurant",
+    example:
+      "A restaurant gets a modern website with its menu, location, business information, WhatsApp contact, and an enquiry form.",
   },
   {
     number: "02",
-    name: "Pro",
-    price: "₹9,999",
+    name: "Medium",
+    price: "₹20,000",
     description:
-      "A smarter website with AI-powered customer interactions and lead handling.",
+      "A professional website with your own AI chatbot that communicates with customers, answers questions, and captures potential leads.",
     includes: [
       "Everything in Starter",
-      "AI chatbot",
-      "AI-powered customer responses",
+      "Custom AI chatbot",
+      "Business-specific AI knowledge",
+      "24/7 customer conversations",
+      "Lead collection",
       "Lead qualification",
-      "Smart enquiry handling",
+      "Website AI integration",
     ],
-    label: "Website + AI",
+    label: "Website + AI Chatbot",
     featured: true,
+    exampleTitle: "Example: Real Estate Business",
+    example:
+      "A property business gets an AI chatbot that answers property questions, understands buyer requirements, collects lead details, and qualifies prospects.",
   },
   {
     number: "03",
-    name: "Scale",
-    price: "₹14,999",
+    name: "Pro",
+    price: "₹25,000",
     description:
-      "A complete AI-powered system that connects your website, AI, and business workflows.",
+      "A complete AI-powered system that communicates with customers and automatically performs repetitive business tasks.",
     includes: [
       "Everything in Pro",
-      "AI automation",
-      "Automated follow-ups",
-      "Workflow automation",
-      "Business process integration",
+      "AI-powered automation",
+      "Automated lead processing",
+      "Customer follow-ups",
+      "Lead & CRM updates",
+      "Team notifications",
+      "Custom business workflows",
     ],
     label: "Website + AI + Automation",
+    exampleTitle: "Example: Healthcare Clinic",
+    example:
+      "A real estate agency gets an AI system that talks to buyers, collects property requirements, qualifies leads, sends follow-ups, updates the CRM, and alerts the sales team when a high-intent buyer is ready.",
   },
 ];
 
@@ -58,15 +73,16 @@ export default function PricingSection() {
           </p>
 
           <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f8f3ed] sm:text-4xl lg:text-5xl">
-            Start small.{" "}
+            Choose how much{" "}
             <span className="text-[#c5b8ae]">
-              Build smarter.
+              your business wants to automate.
             </span>
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-[#927e70] sm:text-base">
-            Choose the level of AI your business needs today. You can always
-            upgrade as your business grows.
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#927e70] sm:text-base">
+            Start with a professional website, add an AI chatbot, or build a
+            complete system that can communicate with customers and take
+            automated actions.
           </p>
         </div>
 
@@ -103,18 +119,18 @@ export default function PricingSection() {
                   {plan.name}
                 </h3>
 
-                <p className="mt-3 min-h-[72px] text-xs leading-6 text-[#927e70] sm:text-sm">
+                <p className="mt-3 min-h-[96px] text-xs leading-6 text-[#927e70] sm:text-sm">
                   {plan.description}
                 </p>
               </div>
 
-              <div className="mt-6">
+              <div className="mt-5">
                 <p className="text-3xl font-semibold tracking-[-0.035em] text-[#f8f3ed]">
                   {plan.price}
                 </p>
 
                 <p className="mt-1 text-[10px] text-[#634f43]">
-                  Starting price
+                  One-time starting price
                 </p>
               </div>
 
@@ -122,7 +138,7 @@ export default function PricingSection() {
 
               <div>
                 <p className="text-[9px] font-medium uppercase tracking-[0.14em] text-[#927e70]">
-                  Includes
+                  What you get
                 </p>
 
                 <div className="mt-4 space-y-3">
@@ -140,7 +156,17 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <div className="mt-auto pt-8">
+              <div className="mt-7 rounded-xl border border-[#43291c] bg-[#1a0f0a] p-4">
+                <p className="text-[9px] font-medium uppercase tracking-[0.12em] text-[#927e70]">
+                  {plan.exampleTitle}
+                </p>
+
+                <p className="mt-2 text-[10px] leading-5 text-[#c5b8ae]">
+                  {plan.example}
+                </p>
+              </div>
+
+              <div className="mt-auto pt-6">
                 <div className="rounded-xl border border-[#43291c] bg-[#1a0f0a] p-4">
                   <p className="text-[9px] uppercase tracking-[0.12em] text-[#927e70]">
                     Package
@@ -167,17 +193,17 @@ export default function PricingSection() {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-[9px] font-medium uppercase tracking-[0.14em] text-[#927e70]">
-                Need something bigger?
+                Need a custom system?
               </p>
 
               <h3 className="mt-2 text-base font-semibold text-[#f8f3ed] sm:text-lg">
-                We can build a custom AI system around your business.
+                We can build AI around your specific business workflow.
               </h3>
 
               <p className="mt-2 text-xs leading-6 text-[#927e70] sm:text-sm">
-                Custom AI agents, advanced automations, CRM integrations,
-                multi-step workflows, and other business-specific systems can
-                be scoped separately.
+                Need advanced AI agents, complex automations, CRM
+                integrations, or multi-step workflows? We can scope a custom
+                solution around your operations.
               </p>
             </div>
 
