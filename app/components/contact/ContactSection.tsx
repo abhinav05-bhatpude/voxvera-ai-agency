@@ -1,4 +1,3 @@
-
 "use client";
 
 import { FormEvent, useState } from "react";
@@ -28,7 +27,7 @@ const contactLinks = [
     href: "https://www.instagram.com/voxveraagency?stkn=MW1nNjV3YXloY2drcA==",
     icon:
       "https://freepngimg.com/download/logo/69768-logo-computer-layout-instagram-icons-png-file-hd.png",
-    active: false,
+    active: true,
   },
   {
     name: "LinkedIn",
@@ -36,7 +35,7 @@ const contactLinks = [
     href: "https://www.linkedin.com/company/voxvera-agency/",
     icon:
       "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png",
-    active: false,
+    active: true,
   },
 ];
 
@@ -139,12 +138,10 @@ export default function ContactSection() {
                       key={contact.name}
                       href={contact.href}
                       target={
-                        contact.name === "WhatsApp" ? "_blank" : undefined
+                        contact.name !== "Gmail" ? "_blank" : undefined
                       }
                       rel={
-                        contact.name === "WhatsApp"
-                          ? "noreferrer"
-                          : undefined
+                        contact.name !== "Gmail" ? "noreferrer" : undefined
                       }
                       className="group rounded-2xl border border-[#43291c] bg-[#24150e] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#634331] hover:bg-[#2a190f] sm:p-5"
                     >
@@ -378,4 +375,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
