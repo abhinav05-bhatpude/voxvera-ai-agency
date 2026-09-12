@@ -1,4 +1,3 @@
-
 import AIAgentSection from "./components/AIAgentSection";
 import AIAutomationSection from "./components/AIAutomationSection";
 import AIChatbotSection from "./components/AIChatbotSection";
@@ -8,6 +7,7 @@ import ExampleSolutionsSection from "./components/solutions/ExampleSolutionsSect
 import IndustriesSection from "./components/IndustriesSection";
 import Navbar from "./components/Navbar";
 import PricingSection from "./components/pricing/PricingSection";
+import ProcessSection from "./components/process/ProcessSection";
 import ProblemSection from "./components/ProblemSection";
 import ServicesSection from "./components/ServicesSection";
 import SolutionSection from "./components/SolutionSection";
@@ -115,6 +115,8 @@ export default function Home() {
       <AIAutomationSection />
 
       <IndustriesSection />
+
+      <ProcessSection />
 
       <PricingSection />
 
@@ -230,4 +232,3 @@ export default function Home() {
     </main>
   );
 }
-
