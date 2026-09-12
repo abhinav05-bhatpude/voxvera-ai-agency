@@ -114,6 +114,7 @@ const processSteps = [
 export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const currentStep = processSteps[activeStep];
 
@@ -128,7 +129,6 @@ export default function ProcessSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect();
         }
       },
       {
@@ -141,10 +141,24 @@ export default function ProcessSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!visible || isPaused) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setActiveStep((current) => (current + 1) % processSteps.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [visible, isPaused]);
+
   return (
     <section
       id="process"
       className="px-5 py-24 sm:px-6 sm:py-28 lg:px-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       <div className="mx-auto max-w-7xl">
         <div
@@ -160,9 +174,7 @@ export default function ProcessSection() {
 
           <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f8f3ed] sm:text-4xl lg:text-5xl">
             From business problem to{" "}
-            <span className="text-[#c5b8ae]">
-              working system.
-            </span>
+            <span className="text-[#c5b8ae]">working system.</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#927e70] sm:text-base">
@@ -177,18 +189,15 @@ export default function ProcessSection() {
               ? "translate-y-0 opacity-100"
               : "translate-y-10 opacity-0"
           }`}
-          style={{
-            transitionDelay: visible ? "150ms" : "0ms",
-          }}
         >
           <div className="relative">
-            <div className="absolute left-[10%] right-[10%] top-[31px] h-px overflow-hidden bg-[#43291c]">
-              <div
-                className={`h-full origin-left bg-[#634331] transition-transform duration-1000 ease-out ${
-                  visible ? "scale-x-100" : "scale-x-0"
-                }`}
-              />
-            </div>
+            <div className="absolute left-[10%] right-[10%] top-[31px] h-px bg-[#43291c]" />
+
+            <div className="absolute left-[10%] top-[31px] h-px bg-[#f8f3ed] transition-all duration-700 ease-out"
+              style={{
+                width: `${(activeStep / (processSteps.length - 1)) * 80}%`,
+              }}
+            />
 
             <div className="relative grid grid-cols-5 gap-4">
               {processSteps.map((step, index) => {
@@ -207,7 +216,7 @@ export default function ProcessSection() {
                     }`}
                     style={{
                       transitionDelay: visible
-                        ? `${250 + index * 100}ms`
+                        ? `${200 + index * 100}ms`
                         : "0ms",
                     }}
                   >
@@ -259,14 +268,7 @@ export default function ProcessSection() {
           </div>
 
           <div
-            className={`mt-12 rounded-2xl border border-[#43291c] bg-[#24150e] p-5 transition-all duration-700 sm:p-6 ${
-              visible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-6 opacity-0"
-            }`}
-            style={{
-              transitionDelay: visible ? "800ms" : "0ms",
-            }}
+            className="mt-12 rounded-2xl border border-[#43291c] bg-[#24150e] p-5 sm:p-6"
           >
             <div className="flex items-center justify-between gap-5">
               <div
@@ -274,7 +276,7 @@ export default function ProcessSection() {
                 className="animate-[fadeIn_300ms_ease-out]"
               >
                 <p className="text-[9px] font-medium uppercase tracking-[0.14em] text-[#927e70]">
-                  Current stage
+                  Step {currentStep.number}
                 </p>
 
                 <h3 className="mt-2 text-base font-semibold text-[#f8f3ed]">
@@ -311,9 +313,6 @@ export default function ProcessSection() {
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}
-          style={{
-            transitionDelay: visible ? "200ms" : "0ms",
-          }}
         >
           {processSteps.map((step, index) => {
             const active = index === activeStep;
@@ -321,7 +320,7 @@ export default function ProcessSection() {
             return (
               <div
                 key={step.number}
-                className={`rounded-2xl border transition-all duration-300 ${
+                className={`rounded-2xl border transition-all duration-500 ${
                   active
                     ? "border-[#634331] bg-[#2a190f]"
                     : "border-[#43291c] bg-[#24150e]"
@@ -334,7 +333,7 @@ export default function ProcessSection() {
                   aria-expanded={active}
                 >
                   <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${
                       active
                         ? "scale-105 border-[#f8f3ed] bg-[#f8f3ed] text-[#1a0f0a]"
                         : "border-[#43291c] text-[#927e70]"
@@ -386,9 +385,6 @@ export default function ProcessSection() {
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0"
           }`}
-          style={{
-            transitionDelay: visible ? "900ms" : "0ms",
-          }}
         >
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
