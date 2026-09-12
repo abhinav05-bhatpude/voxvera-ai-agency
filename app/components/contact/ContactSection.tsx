@@ -25,7 +25,7 @@ const contactLinks = [
   {
     name: "Instagram",
     description: "Follow Voxvera",
-    href: "",
+    href: "https://www.instagram.com/voxveraagency?stkn=MW1nNjV3YXloY2drcA==",
     icon:
       "https://freepngimg.com/download/logo/69768-logo-computer-layout-instagram-icons-png-file-hd.png",
     active: false,
@@ -33,7 +33,7 @@ const contactLinks = [
   {
     name: "LinkedIn",
     description: "Connect with Voxvera",
-    href: "",
+    href: "https://www.linkedin.com/company/voxvera-agency/",
     icon:
       "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png",
     active: false,
