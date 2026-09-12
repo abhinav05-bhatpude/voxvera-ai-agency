@@ -48,7 +48,7 @@ const plans = [
     description:
       "A complete AI-powered system that communicates with customers and automatically performs repetitive business tasks.",
     includes: [
-      "Everything in Pro",
+      "Everything in Medium",
       "AI-powered automation",
       "Automated lead processing",
       "Customer follow-ups",
@@ -57,7 +57,7 @@ const plans = [
       "Custom business workflows",
     ],
     label: "Website + AI + Automation",
-    exampleTitle: "Example: Healthcare Clinic",
+    exampleTitle: "Example: Real Estate Agency",
     example:
       "A real estate agency gets an AI system that talks to buyers, collects property requirements, qualifies leads, sends follow-ups, updates the CRM, and alerts the sales team when a high-intent buyer is ready.",
   },

@@ -3,6 +3,7 @@ import AIAgentSection from "./components/AIAgentSection";
 import AIAutomationSection from "./components/AIAutomationSection";
 import AIChatbotSection from "./components/AIChatbotSection";
 import AIWebsitesSection from "./components/AIWebsitesSection";
+import ContactSection from "./components/contact/ContactSection";
 import ExampleSolutionsSection from "./components/solutions/ExampleSolutionsSection";
 import IndustriesSection from "./components/IndustriesSection";
 import Navbar from "./components/Navbar";
@@ -167,10 +168,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer
-        id="contact"
-        className="border-t border-[#43291c] px-5 py-12 sm:px-6 lg:px-8"
-      >
+      <ContactSection />
+
+      <footer className="border-t border-[#43291c] px-5 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-lg font-semibold tracking-[-0.02em] text-[#f8f3ed]">
